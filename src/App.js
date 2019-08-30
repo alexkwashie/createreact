@@ -46,7 +46,14 @@ delTodo = (id) => {
   this.setState({todo:[...this.state.todo.filter(tdo => tdo.id !== id)] }) //filter means return todos which id is not equal to what is clicked
 }
 
-
+addtodo = (task)=>{
+  const newTodo = {
+    id:4,
+    task: task,
+    completed: false
+  }
+  this.setState({todo: [...this.state.todo,newTodo] })
+}
 
   render(){
     //console.log(this.state)
@@ -54,7 +61,7 @@ delTodo = (id) => {
     return (
       <div className="App">
         <Header/>
-        <AddTodo />
+        <AddTodo addtodo = {this.addtodo}/>
         <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange} delTodo = {this.delTodo}/>
       </div>
     );
