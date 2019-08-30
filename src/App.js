@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Layout/Header'
 import './App.css';
 import Todo from './components/Todos/Todos';
+import AddTodo from './components/Addtodo/Addtodo';
 
 class App extends React.Component {
 //set the state to hold the items that will be displayed on the page
@@ -53,6 +54,7 @@ delTodo = (id) => {
     return (
       <div className="App">
         <Header/>
+        <AddTodo />
         <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange} delTodo = {this.delTodo}/>
       </div>
     );
