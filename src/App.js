@@ -3,6 +3,7 @@ import Header from './components/Layout/Header'
 import './App.css';
 import Todo from './components/Todos/Todos';
 import AddTodo from './components/Addtodo/Addtodo';
+import uuid from 'uuid'
 
 class App extends React.Component {
 //set the state to hold the items that will be displayed on the page
@@ -10,17 +11,17 @@ state = {
 
   todo:[
     {
-      id:1,
+      id:uuid.v4(),
       task: 'taking trash out',
       completed: false
     },
     {
-      id:2,
+      id:uuid.v4(),
       task: 'shave hair',
       completed: false
     },
     {
-      id:3,
+      id:uuid.v4(),
       task: 'wash car outside',
       completed: false
     }
@@ -47,6 +48,7 @@ delTodo = (id) => {
 }
 
 addtodo = (task)=>{
+
   const newTodo = {
     id:4,
     task: task,

@@ -1,0 +1,2 @@
+Random ID generator : npm i uuid
+usage: uuid.v4()
