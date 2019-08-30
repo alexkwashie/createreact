@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Layout/Header'
 import './App.css';
 import Todo from './components/Todos/Todos';
 
@@ -51,7 +52,7 @@ delTodo = (id) => {
 
     return (
       <div className="App">
-        <h1>Welcome</h1>
+        <Header/>
         <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange} delTodo = {this.delTodo}/>
       </div>
     );
