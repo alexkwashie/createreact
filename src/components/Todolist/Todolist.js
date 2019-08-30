@@ -10,15 +10,23 @@ export class Todolist extends Component {
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'}
     }
 
-
+    btnStyle = {
+        float: 'right',
+        border:'none',
+        color: 'white',
+        background:'red',
+        padding: '5px',
+        borderRadius:'3px'
+    }
 
     render(){
         return (
             //get object items and put into const to use below
             <div style = {this.getStyle()}>
                 <h3>
-        <input type="checkbox" onChange={this.props.handleInputChange.bind(this, this.props.todo.id)} /> {'  '} {/*bind allows youi to pull specified object item*/}
+                <input type="checkbox" onChange={this.props.handleInputChange.bind(this, this.props.todo.id)} /> {'  '} {/*bind allows youi to pull specified object item*/}
                 {this.props.todo.task}
+                <button style = {this.btnStyle} onClick={this.props.delTodo.bind(this,this.props.todo.id)}>delete</button>
                 </h3>
             </div>
         )
