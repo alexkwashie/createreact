@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 
 class Todos extends React.Component {
+
   render() {
     return this.props.todo.map((tdo)=>(
-        <Todolist key={tdo.id} todo = {tdo}/> //todo is the prop
+        <Todolist key={tdo.id} todo = {tdo} handleInputChange = {this.props.handleInputChange}/> //todo is the prop
     ));
   }
 

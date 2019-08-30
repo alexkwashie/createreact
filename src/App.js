@@ -27,6 +27,10 @@ state = {
 
 }
 
+handleInputChange = () =>{
+  console.log('hello');
+
+}
 
   render(){
     //console.log(this.state)
@@ -34,7 +38,7 @@ state = {
     return (
       <div className="App">
         <h1>Welcome</h1>
-        <Todo todo={this.state.todo}/>
+        <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange}/>
       </div>
     );
   }

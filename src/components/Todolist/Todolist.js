@@ -10,11 +10,13 @@ export class Todolist extends Component {
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'}
     }
 
+
+
     render(){
         return (
             <div style = {this.getStyle()}>
                 <h3>
-                {}
+                <input type="checkbox" onChange={this.props.handleInputChange} />
                 {this.props.todo.task}
                 </h3>
             </div>
