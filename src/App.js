@@ -15,7 +15,7 @@ state = {
     {
       id:2,
       task: 'shave hair',
-      completed: true
+      completed: false
     },
     {
       id:3,
@@ -27,9 +27,13 @@ state = {
 
 }
 
-handleInputChange = () =>{
-  console.log('hello');
-
+handleInputChange = (id) =>{
+this.setState({todos:this.state.todo.map((tdo)=>{
+  if(tdo.id === id){
+    tdo.completed= !tdo.completed //we toggle it here
+  }
+    return tdo;
+}) })
 }
 
   render(){
