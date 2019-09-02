@@ -1,7 +1,9 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/Layout/Header'
 import './App.css';
 import Todo from './components/Todos/Todos';
+import About from './components/Pages/About';
 import AddTodo from './components/Addtodo/Addtodo';
 import uuid from 'uuid'
 
@@ -50,7 +52,7 @@ delTodo = (id) => {
 addtodo = (task)=>{
 
   const newTodo = {
-    id:4,
+    id:uuid.v4(),
     task: task,
     completed: false
   }
@@ -61,11 +63,22 @@ addtodo = (task)=>{
     //console.log(this.state)
 
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
         <Header/>
-        <AddTodo addtodo = {this.addtodo}/>
-        <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange} delTodo = {this.delTodo}/>
+        <Route exact path = "/" render = {props => ( //exact means show only this path
+          <React.Fragment>
+            <AddTodo addtodo = {this.addtodo}/>
+            <Todo todo={this.state.todo} handleInputChange = {this.handleInputChange} delTodo = {this.delTodo}/>
+          </React.Fragment>
+        )}/>
+
+          <Route path = "/about" component= {About} />
+
       </div>
+
+      </Router>
+
     );
   }
 
