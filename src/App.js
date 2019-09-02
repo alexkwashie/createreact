@@ -42,7 +42,9 @@ this.setState({todo:this.state.todo.map((tdo)=>{
 //Delete todos
 delTodo = (id) => {
   //console.log(id);
-  this.setState({todo:[...this.state.todo.filter(tdo => tdo.id !== id)] }) //filter means return todos which id is not equal to what is clicked
+  axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  .then(res => this.setState({todo:[...this.state.todo.filter(tdo => tdo.id !== id)] })) //filter means return todos which id is not equal to what is clicked)
+
 }
 
 addtodo = (newtitle)=>{
