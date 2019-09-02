@@ -1,36 +1,32 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/Layout/Header'
-import './App.css';
 import Todo from './components/Todos/Todos';
 import About from './components/Pages/About';
 import AddTodo from './components/Addtodo/Addtodo';
-import uuid from 'uuid'
+import uuid from 'uuid';
+import axios from 'axios';
+import './App.css';
+
 
 class App extends React.Component {
 //set the state to hold the items that will be displayed on the page
 state = {
 
   todo:[
-    {
-      id:uuid.v4(),
-      task: 'taking trash out',
-      completed: false
-    },
-    {
-      id:uuid.v4(),
-      task: 'shave hair',
-      completed: false
-    },
-    {
-      id:uuid.v4(),
-      task: 'wash car outside',
-      completed: false
-    }
 
   ]
-
 }
+
+//Load Api and add it to state todo
+componentDidMount(){
+ axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+ .then(res => this.setState({todo:res.data}))
+ .catch(err =>console.log(err)
+ )
+}
+
+
 
 //Taggle check box
 handleInputChange = (id) =>{

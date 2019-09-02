@@ -25,7 +25,7 @@ export class Todolist extends Component {
             <div style = {this.getStyle()}>
                 <h3>
                 <input type="checkbox" onChange={this.props.handleInputChange.bind(this, this.props.todo.id)} /> {'  '} {/*bind allows youi to pull specified object item*/}
-                {this.props.todo.task}
+                {this.props.todo.title}
                 <button style = {this.btnStyle} onClick={this.props.delTodo.bind(this,this.props.todo.id)}>delete</button>
                 </h3>
             </div>
