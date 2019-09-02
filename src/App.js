@@ -4,7 +4,7 @@ import Header from './components/Layout/Header'
 import Todo from './components/Todos/Todos';
 import About from './components/Pages/About';
 import AddTodo from './components/Addtodo/Addtodo';
-import uuid from 'uuid';
+//import uuid from 'uuid';
 import axios from 'axios';
 import './App.css';
 
@@ -45,14 +45,13 @@ delTodo = (id) => {
   this.setState({todo:[...this.state.todo.filter(tdo => tdo.id !== id)] }) //filter means return todos which id is not equal to what is clicked
 }
 
-addtodo = (task)=>{
+addtodo = (newtitle)=>{
+axios.post('https://jsonplaceholder.typicode.com/todos', {
+  title: newtitle,
+  completed:false
+})
+.then(res => this.setState({todo: [...this.state.todo, res.data]}))
 
-  const newTodo = {
-    id:uuid.v4(),
-    task: task,
-    completed: false
-  }
-  this.setState({todo: [...this.state.todo,newTodo] })
 }
 
   render(){
