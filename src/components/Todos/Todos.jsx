@@ -15,7 +15,9 @@ class Todos extends React.Component {
 
 //PropType are a validation for what props should have eg: required etc
 Todos.propTypes = {
-todo:PropTypes.array.isRequired
+todo:PropTypes.array.isRequired,
+handleInputChange:PropTypes.func.isRequired,
+delTodo:PropTypes.func.isRequired
 }
 
 export default Todos;
